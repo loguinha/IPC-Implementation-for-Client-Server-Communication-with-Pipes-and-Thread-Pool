@@ -62,12 +62,14 @@ int main() {
     if (option[0] == '1') {
         printf("Digite a string que sera enviada: ");
         fgets(input, sizeof(input), stdin);  // Leitura do input (string)
+        input[strcspn(input, "\n")] = 0;  // Remove o '\n' lido pelo fgets
         send_string_request(input);  // Chama função que envia a string ao servidor
 
     // NUMERO
     } else if (option[0] == '2') { 
         printf("Digite o numero que sera enviado: ");
         fgets(input, sizeof(input), stdin);  // Leitura do input (numero)
+        input[strcspn(input, "\n")] = 0;  // Remove o '\n' lido pelo fgets
         send_number_request(input);  // Chama função que envia o número ao servidor
 
     // DEFAULT
